@@ -1,20 +1,21 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  labels:
-    app: nginx
   name: nginx-deployment
   namespace: argocd
+  labels:
+    app: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: nginx
   template:
-    metatdata:
-      labels:
+    metadata:
+      labels:     
         app: nginx
     spec:
       containers:
-      - image: nginx
-        name: nginx
+      - name: nginx
+        image: nginx
+
